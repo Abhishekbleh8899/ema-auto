@@ -24,7 +24,7 @@ pipeline {
                 --network ema-network \
                 -e MYSQL_ROOT_PASSWORD=shubham@12345 \
                 -e MYSQL_DATABASE=employees_db \
-                -v $(pwd)/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql \
+                -v $(pwd)/sql/init.sql:/docker-entrypoint-initdb.d/init.sql \
                 ema-mysql
                 '''
             }
