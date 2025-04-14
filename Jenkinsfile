@@ -4,9 +4,9 @@ pipeline {
     stages {
         stage('Build Docker Images') {
             steps {
-                sh 'docker build -t ema-frontend ./frontend'
+                sh 'docker build -t ema-frontend ./FrontEnd'
                 sh 'docker build -t ema-backend ./backend'
-                sh 'docker build -t ema-mysql ./mysql'
+                sh 'docker build -t ema-mysql ./sql'
             }
         }
 
