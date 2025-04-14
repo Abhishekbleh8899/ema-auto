@@ -1,6 +1,8 @@
-CREATE TABLE IF NOT EXISTS employees (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(255),
-  email VARCHAR(255),
-  department VARCHAR(255)
+CREATE DATABASE IF NOT EXISTS employees_db;
+USE employees_db;
+CREATE TABLE IF NOT EXISTS Employees (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    contact VARCHAR(255) NOT NULL,
+    address TEXT NOT NULL
 );
