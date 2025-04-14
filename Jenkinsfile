@@ -42,6 +42,11 @@ pipeline {
                 docker run -d --rm \
                 --name ema-backend \
                 --network ema-network \
+                -p 8080:8080 \
+                -e DB_HOST=ema-mysql \
+                -e DB_USER=root \
+                -e DB_PASSWORD=shubham@12345 \
+                -e DB_NAME=employees_db \
                 ema-backend
                 '''
             }
