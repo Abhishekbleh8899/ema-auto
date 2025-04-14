@@ -4,22 +4,22 @@ pipeline {
     stages {
         stage('Build Docker Images') {
             steps {
-                sh 'docker build -t ema-frontend ./frontend'
-                sh 'docker build -t ema-backend ./backend'
-                sh 'docker build -t ema-mysql ./mysql'
+                sh 'sudo docker build -t ema-frontend ./frontend'
+                sh 'sudo docker build -t ema-backend ./backend'
+                sh 'sudo docker build -t ema-mysql ./mysql'
             }
         }
 
         stage('Create Network') {
             steps {
-                sh 'docker network create ema-network || true'
+                sh 'sudo docker network create ema-network || true'
             }
         }
 
         stage('Run MySQL') {
             steps {
                 sh '''
-                docker run -d --rm \
+                sudo docker run -d --rm \
                 --name ema-mysql \
                 --network ema-network \
                 -e MYSQL_ROOT_PASSWORD=shubham@12345 \
@@ -39,7 +39,7 @@ pipeline {
         stage('Run Backend') {
             steps {
                 sh '''
-                docker run -d --rm \
+               sudo  docker run -d --rm \
                 --name ema-backend \
                 --network ema-network \
                 ema-backend
@@ -50,7 +50,7 @@ pipeline {
         stage('Run Frontend') {
             steps {
                 sh '''
-                docker run -d --rm \
+              sudo docker run -d --rm \
                 --name ema-frontend \
                 --network ema-network \
                 -p 5000:5000 \
