@@ -4,15 +4,15 @@ pipeline {
     stages {
         stage('Build Docker Images') {
             steps {
-                sh 'sudo docker build -t ema-frontend ./FrontEnd'
-                sh 'sudo docker build -t ema-backend ./backend'
-                sh 'sudodocker build -t ema-mysql ./sql'
+                sh 'docker build -t ema-frontend ./FrontEnd'
+                sh 'docker build -t ema-backend ./backend'
+                sh 'docker build -t ema-mysql ./sql'
             }
         }
 
         stage('Create Network') {
             steps {
-                sh 'sudo docker network create ema-network || true'
+                sh 'docker network create ema-network || true'
             }
         }
 
